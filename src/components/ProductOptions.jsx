@@ -1,63 +1,63 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const OptionContainer = styled.div`
+const OptionsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-bottom: 10px;
 `;
 
-const OptionItem = styled.div`
+const Option = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #d3d3d3; 
+  width: ${props => (props.shape === 'square' ? '46px' : '31px')};
+  height: ${props => (props.shape === 'square' ? '46px' : '31px')};
+  border: 1px solid #ccc;
+  border-radius: ${props => (props.shape === 'square' ? props.radius : '50%')};
+  background-color: ${props => (props.type === 'color' ? props.option : 'transparent')};
+  font-size: 24px;
+  color: ${props => (props.type === 'text' ? '#474747' : 'transparent')};
   cursor: pointer;
   transition: border 0.3s;
-  ${props => props.shape === 'circle' && `
-    width: 31px;
-    height: 31px;
-    border-radius: 50%;
-    background-color: ${props.type === 'color' ? props.option : 'transparent'};
-  `}
-  ${props => props.shape === 'square' && `
-    width: 46px;
-    height: 46px;
-    border-radius: ${props.radius};
-    background-color: ${props.type === 'color' ? props.option : 'transparent'};
-  `}
-  ${props => props.type === 'text' && `
-    font-size: 24px;
-    color: #333; /* Dark-gray color */
-  `}
-  border-color: ${props.selected ? '#C92071' : '#d3d3d3'};
+
   &:hover {
     border-color: #C92071;
   }
+
+  ${props =>
+    props.selected &&
+    `
+    background-color: #C92071;
+    border-width: 2px;
+  `}
 `;
 
-const ProductOptions = ({ options, radius, shape, type, onOptionSelect }) => {
+const ProductOptions = ({ options, radius, shape, type }) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
   const handleOptionClick = (option) => {
-    if (onOptionSelect) onOptionSelect(option);
+    setSelectedOption(option);
   };
 
   return (
-    <OptionContainer>
+    <OptionsContainer>
       {options.map((option, index) => (
-        <OptionItem
+        <Option
           key={index}
+          option={option}
           shape={shape}
           radius={radius}
           type={type}
-          option={option}
+          selected={option === selectedOption}
           onClick={() => handleOptionClick(option)}
         >
-          {type === 'text' ? option : ''}
-        </OptionItem>
+          {type === 'text' && option}
+        </Option>
       ))}
-    </OptionContainer>
+    </OptionsContainer>
   );
 };
 
@@ -66,7 +66,6 @@ ProductOptions.propTypes = {
   radius: PropTypes.string,
   shape: PropTypes.oneOf(['square', 'circle']).isRequired,
   type: PropTypes.oneOf(['text', 'color']).isRequired,
-  onOptionSelect: PropTypes.func,
 };
 
 export default ProductOptions;

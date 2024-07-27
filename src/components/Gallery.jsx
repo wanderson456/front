@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -11,6 +10,16 @@ const GalleryContainer = styled.div`
   height: ${props => props.height || '100%'};
   overflow: hidden;
   border-radius: ${props => props.radius || '0'};
+  
+  @media (max-width: 768px) {
+    /* Adjust for mobile */
+    height: ${props => props.height ? `calc(${props.height} * 0.6)` : 'calc(100% * 0.6)'};
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    /* Adjust for tablets */
+    height: ${props => props.height ? `calc(${props.height} * 0.8)` : 'calc(100% * 0.8)'};
+  }
 `;
 
 const Image = styled.img`
@@ -51,6 +60,11 @@ const ThumbnailsContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  overflow-x: auto; /* Allow horizontal scroll for thumbnails on smaller screens */
+  
+  @media (max-width: 768px) {
+    margin-top: 5px;
+  }
 `;
 
 const Thumbnail = styled.img`
@@ -73,6 +87,10 @@ const Indicators = styled.div`
   position: absolute;
   bottom: 10px;
   width: 100%;
+  
+  @media (max-width: 768px) {
+    bottom: 5px;
+  }
 `;
 
 const Dot = styled.span`
@@ -82,6 +100,11 @@ const Dot = styled.span`
   background-color: ${props => (props.active ? props.theme.primary : '#bbb')};
   border-radius: 50%;
   display: inline-block;
+
+  @media (max-width: 768px) {
+    height: 8px;
+    width: 8px;
+  }
 `;
 
 const Gallery = ({ width, height, radius, showThumbs, images }) => {

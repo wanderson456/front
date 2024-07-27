@@ -3,7 +3,7 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Gallery from '../components/Gallery';
 import HighlightedCollections from './HighlightedCollections';
-import ProductViewPage from './ProductView';
+import ProductViewPage from './ProductViewPage';
 import Colection from '../components/Colection';
 
 // Definindo tema para uso com styled-components
@@ -182,7 +182,7 @@ const HomePage = () => {
         <ProductViewPageContainer>
           <ProdutoAlta>Produtos em alta</ProdutoAlta>
           <ProductsContainer>
-            <ProductViewPage />
+            <ProductViewPage/>
           </ProductsContainer>
         </ProductViewPageContainer>
       </ThemeProvider>
