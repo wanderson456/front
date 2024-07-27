@@ -2,6 +2,7 @@
 import Paths from './routes/Paths';
 import { ProductProvider } from './context/ProductContext';
 
+
 const App = () => {
   return ( <>
   <ProductProvider>
@@ -14,3 +15,4 @@ const App = () => {
  
 export default App; <>
 </>
+// versao 2 
