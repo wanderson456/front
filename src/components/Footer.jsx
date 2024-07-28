@@ -42,6 +42,10 @@ const Icons = styled.div`
   gap: 10px;
 `;
 
+const IconLink = styled.a`
+  display: inline-block;
+`;
+
 const Icon = styled.img`
   width: 24px;
   height: 24px;
@@ -108,9 +112,15 @@ const Footer = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
           </Description>
           <Icons>
-            <Icon src={face} alt="Facebook" />
-            <Icon src={x} alt="Twitter" />
-            <Icon src={insta} alt="Instagram" />
+            <IconLink href="https://www.facebook.com/login" target="_blank" rel="noopener noreferrer">
+              <Icon src={face} alt="Facebook" />
+            </IconLink>
+            <IconLink href="https://twitter.com/login" target="_blank" rel="noopener noreferrer">
+              <Icon src={x} alt="Twitter" />
+            </IconLink>
+            <IconLink href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer">
+              <Icon src={insta} alt="Instagram" />
+            </IconLink>
           </Icons>
         </Divimg>
         <InformationContainer>
