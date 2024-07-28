@@ -1,25 +1,22 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import arrowLeft from '../assets/arrow-left.svg';
 import arrowRight from '../assets/arrow-right.svg';
 
-
 const GalleryContainer = styled.div`
   position: relative;
-  width: ${props => props.width || '100%'};
-  height: ${props => props.height || '100%'};
+  width: ${(props) => props.width || '100%'};
+  height: ${(props) => props.height || '100%'};
   overflow: hidden;
-  border-radius: ${props => props.radius || '0'};
+  border-radius: ${(props) => props.radius || '0'};
   
   @media (max-width: 768px) {
-    /* Adjust for mobile */
-    height: ${props => props.height ? `calc(${props.height} * 0.6)` : 'calc(100% * 0.6)'};
+    height: ${(props) => (props.height ? `calc(${props.height} * 0.6)` : 'calc(100% * 0.6)')};
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    /* Adjust for tablets */
-    height: ${props => props.height ? `calc(${props.height} * 0.8)` : 'calc(100% * 0.8)'};
+    height: ${(props) => (props.height ? `calc(${props.height} * 0.8)` : 'calc(100% * 0.8)')};
   }
 `;
 
@@ -27,7 +24,7 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: ${props => props.radius || '0'};
+  border-radius: ${(props) => props.radius || '0'};
 `;
 
 const Arrow = styled.img`
@@ -51,7 +48,7 @@ const Arrow = styled.img`
     opacity: 0.7;
   }
 
-  &:disabled {
+  &[disabled] {
     opacity: 0.3;
     cursor: not-allowed;
   }
@@ -74,8 +71,8 @@ const Thumbnail = styled.img`
   object-fit: cover;
   cursor: pointer;
   margin: 0 5px;
-  border-radius: ${props => props.radius || '0'};
-  border: ${props => (props.selected ? `2px solid ${props.theme.primary}` : 'none')};
+  border-radius: ${(props) => props.radius || '0'};
+  border: ${(props) => (props.$selected ? `2px solid ${props.theme.primary}` : 'none')};
 
   &:hover {
     opacity: 0.7;
@@ -98,7 +95,7 @@ const Dot = styled.span`
   height: 10px;
   width: 10px;
   margin: 0 5px;
-  background-color: ${props => (props.active ? props.theme.primary : '#bbb')};
+  background-color: ${(props) => (props.$active ? props.theme.primary : '#bbb')};
   border-radius: 50%;
   display: inline-block;
 
@@ -108,7 +105,7 @@ const Dot = styled.span`
   }
 `;
 
-const Gallery = ({ width, height, radius, showThumbs, images }) => {
+const Gallery = ({ width, height, radius, images, showThumbs }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevClick = () => {
@@ -141,7 +138,7 @@ const Gallery = ({ width, height, radius, showThumbs, images }) => {
               src={image.src}
               alt={`Thumbnail ${index + 1}`}
               onClick={() => handleThumbnailClick(index)}
-              selected={index === currentIndex}
+              $selected={index === currentIndex}
               radius={radius}
             />
           ))}
@@ -150,7 +147,7 @@ const Gallery = ({ width, height, radius, showThumbs, images }) => {
 
       <Indicators>
         {images.map((_, index) => (
-          <Dot key={index} active={index === currentIndex} />
+          <Dot key={index} $active={index === currentIndex} />
         ))}
       </Indicators>
     </GalleryContainer>

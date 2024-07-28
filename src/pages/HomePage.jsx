@@ -1,25 +1,20 @@
 // src/pages/HomePage.jsx
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Gallery from '../components/Gallery';
 import HighlightedCollections from './HighlightedCollections';
 import ProductViewPage from './ProductViewPage';
 import Colection from '../components/Colection';
-import { TbBackground } from 'react-icons/tb';
+import { ProductContext } from '../context/ProductContext';
+
 
 // Definindo tema para uso com styled-components
 const theme = {
   primary: 'red',
 };
 
-const imageList = [
-  { src: 'src/assets/tenis.svg' },
-  { src: 'src/assets/tenis2.svg' },
-  { src: 'src/assets/tenis.svg' }
-];
-
 const Fundo = styled.div`
-  background-color:#F9F8FE;
+  background-color: #F9F8FE;
   min-height: 100vh; /* Garante que o fundo ocupe a altura total da tela */
   display: flex;
   flex-direction: column;
@@ -32,8 +27,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center; /* Centraliza o conteúdo horizontalmente */
   padding: 20px;
-  background-color:  #F5F5F5 ;
-  ;
+  background-color: #F5F5F5;
+  width: 100%;
 
   @media (min-width: 768px) {
     flex-direction: row; /* Altera a direção para row em telas maiores */
@@ -157,6 +152,9 @@ const ProductsContainer = styled.div`
 `;
 
 const HomePage = () => {
+  const { products } = useContext(ProductContext);
+  const highlightProduct = products[0]; // Assume que o primeiro produto é o destaque
+
   return (
     <Fundo>
       <ThemeProvider theme={theme}>
@@ -176,12 +174,13 @@ const HomePage = () => {
               width="1440"
               height="681px"
               radius="4px"
-              showThumbs={imageList}
-              images={imageList}
+              showThumbs={highlightProduct.showThumb}
+              images={highlightProduct.images}
             />
           </GalleryContainer>
           <Ornament src="src/assets/ornament.svg" alt="Ornamento Amarelo" />
         </Container>
+       
 
         <HighlightedCollectionsContainer>
           <HighlightedCollections />
