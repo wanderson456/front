@@ -10,6 +10,7 @@ const ProductGrid = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   color: white;
+  background-color: #F9F8FE ;
   padding: 20px;
   
 `;

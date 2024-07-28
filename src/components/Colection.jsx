@@ -11,6 +11,7 @@ const CategoriesContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 20px;
+  background-color:#F9F8FE;
  
   gap: 10px;
 `;

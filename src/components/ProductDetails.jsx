@@ -1,26 +1,53 @@
 // src/pages/ProductViewPage.jsx
-import React, { useContext, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useContext, useState, useEffect} from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { ProductContext } from '../context/ProductContext';
 import Gallery from '../components/Gallery';
 import BuyBox from '../components/BuyBox';
 import ProductOptions from '../components/ProductOptions';
 import ProductViewPage from'../pages/ProductViewPage';
+import SmallGallery from '../components/SmallGallery';
 
-
-
+const NavLinkStyled = styled(NavLink)`
+  text-decoration: none;
+  color: #333;
+  padding-bottom: 5px;
+  &.active {
+    color: #C92071; /* Cor do link ativo */
+    border-bottom: 2px solid  #C92071;; /* Linha horizontal abaixo */
+  }
+`;
+const Wrapper = styled.div`
+  background-color: #F9F8FE;
+  min-height: 100vh; /* Garante que o fundo ocupe a altura total da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const NavContainer = styled.nav`
+  display: flex;
+  gap: 20px;
+`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 5%;
   width: 100%;
-  background-color: #F5F5F5;
+  background-color: #F9F8FE;
 `;
 
-const Breadcrumb = styled.div`
+const MiniGallery = styled.div`
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 5px;
+  display: inline-flex;
+  gap: 8px;
+  margin-left: 6%;
+  
+ 
 `;
 
 const MainContent = styled.div`
@@ -40,6 +67,7 @@ const DetailsContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding: 20px;
+  background-color: #F9F8FE;
 `;
 
 const RelatedProducts = styled.div`
@@ -60,13 +88,21 @@ const ProductDetails = () => {
 
   const product = products.find((p) => p.id.toString() === id);
 
+
   if (!product) {
     return <div>Produto não encontrado</div>;
   }
 
   return (
+    <Wrapper>
     <Container>
-      <Breadcrumb>Home / Produtos / {product.name}</Breadcrumb>
+      <NavContainer>
+      <NavLinkStyled to={'/'}>Home</NavLinkStyled>
+      <NavLinkStyled to={'/products'}>Produtos</NavLinkStyled>
+      {product.name}
+
+      </NavContainer>
+     
       <MainContent>
         <GalleryContainer>
           <Gallery 
@@ -103,14 +139,20 @@ const ProductDetails = () => {
             />
           </BuyBox>
         </DetailsContainer>
+        
       </MainContent>
-     
+      <MiniGallery>
+      <SmallGallery images={product.images} width={'150px'} height={'150px'} bgColor={'orange'} radius={'4px'}/>
+      <SmallGallery images={product.images} width={'150px'} height={'150px'} bgColor={'yellow'} radius={'4px'}/>
+      <SmallGallery images={product.images} width={'150px'} height={'150px'} bgColor={'blueviolet'} radius={'4px'}/>
+      </MiniGallery>
       <RelatedProducts>
         <RelatedTitle>Produtos Relacionados</RelatedTitle>
         <ProductViewPage/>
      
       </RelatedProducts>
     </Container>
+    </Wrapper>
   );
 };
 
