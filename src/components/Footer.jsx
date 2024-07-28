@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Information from './Information'; // Importe o componente Information
+import Information from './Information'; 
 import LogoImg from './LogoImg';
 import img from '../assets/logo-footer.svg';
 import face from '../assets/facebook.svg';
@@ -8,23 +8,23 @@ import insta from '../assets/instagram.svg';
 import x from '../assets/twitter.svg';
 
 const FooterContainer = styled.footer`
-  background-color: #1F1F1F; /* Fundo dark-gray */
-  color: #FFFFFF; /* Texto em branco */
+  background-color: #1F1F1F; 
+  color: #FFFFFF; 
   padding: 40px 0;
 `;
 
 const FooterContent = styled.div`
-  padding: 0 20px; /* Margem interna para o conteúdo */
+  padding: 0 20px; 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 1200px; /* Largura máxima do conteúdo */
-  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  max-width: 1200px; 
+  margin: 0 auto; 
 `;
 
 const Divimg = styled.div`
-  flex: 1.5; /* Ocupa 10% a mais de espaço */
+  flex: 1.5; 
   margin-right: 8%;
 `;
 
@@ -50,8 +50,8 @@ const Icon = styled.img`
 
 const Hr = styled.hr`
   border: 0.5px solid #474747; 
-  margin: 20px auto; /* Margem automática para centralizar */
-  width: 80%; /* Define a largura da linha horizontal */
+  margin: 20px auto; 
+  width: 80%; 
 `;
 
 const Copyright = styled.p`

@@ -8,7 +8,7 @@ const BuyBoxContainer = styled.div`
   background-color: #F9F8FE;
   box-sizing: border-box;
   max-width: 800px;
-  margin: 0 auto; /* Center the component on larger screens */
+  margin: 0 auto; 
 
   @media (max-width: 768px) {
     padding: 15px;
@@ -88,7 +88,7 @@ const PriceContainer = styled.div`
   display: flex;
   align-items: center;
   margin: 10px 0;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  flex-wrap: wrap;
 
   @media (max-width: 768px) {
     margin: 8px 0;
@@ -121,7 +121,7 @@ const Price = styled.p`
 
 const DiscountedPrice = styled.p`
   font-size: 32px;
-  color: #090909; /* Cor primária para preço com desconto */
+  color: #090909; 
   margin: 0;
   margin-left: 10px;
 
@@ -154,14 +154,14 @@ const Button = styled.button`
   padding: 10px;
   font-size: 16px;
   color: #fff;
-  background-color: #f5c518; /* Cor primária para o botão */
+  background-color: #f5c518; 
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #91740d; /* Cor do botão quando em hover */
+    background-color: #91740d; 
   }
 
   @media (max-width: 768px) {

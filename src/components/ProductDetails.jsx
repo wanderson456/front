@@ -1,34 +1,32 @@
-// src/pages/ProductViewPage.jsx
-import React, { useContext, useState, useEffect} from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { ProductContext } from '../context/ProductContext';
 import Gallery from '../components/Gallery';
 import BuyBox from '../components/BuyBox';
 import ProductOptions from '../components/ProductOptions';
-import ProductViewPage from'../pages/ProductViewPage';
-import SmallGallery from '../components/SmallGallery';
+import ProductViewPage from '../pages/ProductViewPage';
 
 const NavLinkStyled = styled(NavLink)`
   text-decoration: none;
   color: #333;
   padding-bottom: 5px;
-  &.active {
-    color: #C92071; /* Cor do link ativo */
-    border-bottom: 2px solid  #C92071;; /* Linha horizontal abaixo */
-  }
+  
 `;
+
 const Wrapper = styled.div`
   background-color: #F9F8FE;
-  min-height: 100vh; /* Garante que o fundo ocupe a altura total da tela */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
+
 const NavContainer = styled.nav`
   display: flex;
-  gap: 20px;
+  
 `;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,18 +35,7 @@ const Container = styled.div`
   background-color: #F9F8FE;
 `;
 
-const MiniGallery = styled.div`
-  font-size: 14px;
-  margin-bottom: 5px;
-  margin-top: 10px;
-  cursor: pointer;
-  padding: 5px;
-  display: inline-flex;
-  gap: 8px;
-  margin-left: 6%;
-  
- 
-`;
+
 
 const MainContent = styled.div`
   display: flex;
@@ -71,7 +58,7 @@ const DetailsContainer = styled.div`
 `;
 
 const RelatedProducts = styled.div`
-  margin-top: 40px;
+  margin-top: 12%;
 `;
 
 const RelatedTitle = styled.h2`
@@ -82,12 +69,11 @@ const RelatedTitle = styled.h2`
 const ProductDetails = () => {
   const { id } = useParams();
   const { products } = useContext(ProductContext);
-  
+
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
 
   const product = products.find((p) => p.id.toString() === id);
-
 
   if (!product) {
     return <div>Produto não encontrado</div>;
@@ -95,63 +81,57 @@ const ProductDetails = () => {
 
   return (
     <Wrapper>
-    <Container>
-      <NavContainer>
-      <NavLinkStyled to={'/'}>Home</NavLinkStyled>
-      <NavLinkStyled to={'/products'}>Produtos</NavLinkStyled>
-      {product.name}
+      <Container>
+        <NavContainer>
+          <NavLinkStyled to={'/'}>Home / </NavLinkStyled>
+          <NavLinkStyled to={'/products'}>Produtos / </NavLinkStyled>
+          {product.name}
+        </NavContainer>
 
-      </NavContainer>
-     
-      <MainContent>
-        <GalleryContainer>
-          <Gallery 
-            width={'700px'} 
-            height={'570px'} 
-            radius={'4px'} 
-            images={product.images} 
-            showThumbs
-          />
-        </GalleryContainer>
-    
-        
-        <DetailsContainer>
-          <BuyBox 
-            name={product.name} 
-            reference={product.category} 
-            stars={product.rating} 
-            rating={product.reviews} 
-            priceDiscount= {product.priceDiscount} 
-            price= {product.price} 
-            description={product.description}
-            
-          >
-            <ProductOptions 
-              options={product.sizes} 
-              shape='square' 
-              type='text' 
+        <MainContent>
+          <GalleryContainer>
+            <Gallery
+              width={'700px'}
+              height={'570px'}
               radius={'4px'}
+              images={product.images}
+              showThumbs
+              colors={product.colors}
             />
-            <ProductOptions 
-              options={product.colors} 
-              shape='circle' 
-              type='color'
-            />
-          </BuyBox>
-        </DetailsContainer>
+          </GalleryContainer>
+
+          <DetailsContainer>
+            <BuyBox
+              name={product.name}
+              reference={product.category}
+              stars={product.rating}
+              rating={product.reviews}
+              priceDiscount={product.priceDiscount}
+              price={product.price}
+              description={product.description}
+            >
+              <ProductOptions
+                options={product.sizes}
+                shape='square'
+                type='text'
+                radius={'4px'}
+              />
+              <ProductOptions
+                options={product.colors}
+                shape='circle'
+                type='color'
+              />
+            </BuyBox>
+          </DetailsContainer>
+        </MainContent>
+
         
-      </MainContent>
-      <MiniGallery>
-      <SmallGallery images={product.images} width={'150px'} height={'150px'} bgColor={'orange'} radius={'4px'}/>
-      <SmallGallery images={product.images} width={'150px'} height={'150px'} bgColor={'yellow'} radius={'4px'}/>
-      <SmallGallery images={product.images} width={'150px'} height={'150px'} bgColor={'blueviolet'} radius={'4px'}/>
-      </MiniGallery>
-      <RelatedProducts>
-        <RelatedTitle>Produtos Relacionados</RelatedTitle>
-        <ProductViewPage/>
-     
-      </RelatedProducts>
-    </Container>
+
+        <RelatedProducts>
+          <RelatedTitle>Produtos Relacionados</RelatedTitle>
+          <ProductViewPage/>
+        </RelatedProducts>
+      </Container>
     </Wrapper>
   );
 };
