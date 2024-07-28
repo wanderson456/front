@@ -1,17 +1,17 @@
-// src/components/ProductCard.js
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
-  position: relative; /* Adicionado para permitir posicionamento absoluto */
+  position: relative; 
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinha os itens à esquerda */
-  cursor: pointer; /* Adicionado para indicar que o card é clicável */
+  align-items: flex-start; 
+  cursor: pointer; 
+  gap: 5px;
 `;
 
 const DiscountBadge = styled.div`
@@ -31,9 +31,9 @@ const DiscountBadge = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 321px; /* Altura fixa para a imagem */
+  height: 321px; 
   object-fit: cover;
-  width: 292px; /* Define a largura total do card com imagem e informações */
+  width: 292px; 
   border: 1px solid #e1e1e1;
   border-radius: 8px;
   overflow: hidden;
@@ -42,9 +42,9 @@ const Image = styled.img`
 `;
 
 const Info = styled.div`
-  padding: 16px; /* Adiciona espaçamento interno */
-  text-align: left; /* Centraliza o texto à esquerda */
-  width: 100%; /* Garante que o conteúdo preencha toda a largura */
+  padding: 16px; 
+  text-align: left; 
+  width: 100%; 
 `;
 
 const Name = styled.h2`
@@ -56,14 +56,14 @@ const Name = styled.h2`
 
 const PriceContainer = styled.div`
   display: flex;
-  align-items: baseline; /* Alinha os itens pela linha de base */
+  align-items: baseline; 
 `;
 
 const Price = styled.p`
   font-size: 18px;
   color: #b0b0b0;
   text-decoration: line-through;
-  margin: 0 10px 0 0; /* Espaçamento à direita */
+  margin: 0 10px 0 0; 
 `;
 
 const DiscountedPrice = styled.p`

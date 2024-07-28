@@ -1,169 +1,129 @@
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import arrowLeft from '../assets/arrow-left.svg';
-import arrowRight from '../assets/arrow-right.svg';
+import LeftArrowSvg from '../assets/arrow-left.svg';
+import RightArrowSvg from '../assets/arrow-right.svg';
 
 const GalleryContainer = styled.div`
   position: relative;
-  width: ${(props) => props.width || '100%'};
-  height: ${(props) => props.height || '100%'};
-  overflow: hidden;
-  border-radius: ${(props) => props.radius || '0'};
-  
-  @media (max-width: 768px) {
-    height: ${(props) => (props.height ? `calc(${props.height} * 0.6)` : 'calc(100% * 0.6)')};
-  }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
-    height: ${(props) => (props.height ? `calc(${props.height} * 0.8)` : 'calc(100% * 0.8)')};
-  }
+  width: ${({ width }) => width || '100%'};
+  height: ${({ height }) => height || 'auto'};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${({ bgColor }) => bgColor || 'transparent'}; 
 `;
 
-const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: ${(props) => props.radius || '0'};
-`;
-
-const Arrow = styled.img`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  z-index: 10;
-
-  &.left {
-    left: 10px;
-  }
-
-  &.right {
-    right: 10px;
-  }
-
-  &:hover {
-    opacity: 0.7;
-  }
-
-  &[disabled] {
-    opacity: 0.3;
-    cursor: not-allowed;
-  }
+const MainImage = styled.img`
+  width: 80%;
+  height: 400px; 
+  object-fit: cover; 
+  border-radius: ${({ radius }) => radius || '0px'};
+  display: block;
+  margin-top: 5%;
 `;
 
 const ThumbnailsContainer = styled.div`
-  display: flex;
+  display: ${({ showThumbs }) => (showThumbs ? 'flex' : 'none')};
   justify-content: center;
-  margin-top: 10px;
-  overflow-x: auto; /* Allow horizontal scroll for thumbnails on smaller screens */
-  
-  @media (max-width: 768px) {
-    margin-top: 5px;
-  }
+  margin-top: 20%; 
+  flex-wrap: wrap; 
 `;
 
 const Thumbnail = styled.img`
-  width: 117px;
-  height: 95px;
-  object-fit: cover;
+  width: 20%;
+  height: auto;
+  margin: 0 3px; 
   cursor: pointer;
-  margin: 0 5px;
-  border-radius: ${(props) => props.radius || '0'};
-  border: ${(props) => (props.$selected ? `2px solid ${props.theme.primary}` : 'none')};
-
-  &:hover {
-    opacity: 0.7;
-  }
+  border: 2px solid ${({ active }) => (active ? '#C92071' : 'transparent')};
+  border-radius: ${({ radius }) => radius || '0px'};
+  background-color: ${({ backgroundColor }) => backgroundColor || 'transparent'};
+  padding: 2px; 
 `;
 
-const Indicators = styled.div`
-  display: flex;
-  justify-content: center;
+const Arrow = styled.div`
   position: absolute;
-  bottom: 10px;
-  width: 100%;
-  
-  @media (max-width: 768px) {
-    bottom: 5px;
-  }
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const Dot = styled.span`
-  height: 10px;
-  width: 10px;
-  margin: 0 5px;
-  background-color: ${(props) => (props.$active ? props.theme.primary : '#bbb')};
-  border-radius: 50%;
-  display: inline-block;
-
-  @media (max-width: 768px) {
-    height: 8px;
-    width: 8px;
-  }
+const LeftArrow = styled(Arrow)`
+  left: 10px;
 `;
 
-const Gallery = ({ width, height, radius, images, showThumbs }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const RightArrow = styled(Arrow)`
+  right: 10px;
+`;
 
-  const handlePrevClick = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
-  const handleNextClick = () => {
-    if (currentIndex < images.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
+const Gallery = ({ images, showThumbs, radius, width, height, colors }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [bgColor, setBgColor] = useState('transparent'); 
 
   const handleThumbnailClick = (index) => {
-    setCurrentIndex(index);
+    setSelectedIndex(index);
+    setBgColor(colors && colors[index] ? colors[index] : 'transparent'); 
+  };
+
+  const handleLeftArrowClick = () => {
+    setSelectedIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const handleRightArrowClick = () => {
+    setSelectedIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   };
 
   return (
-    <GalleryContainer width={width} height={height} radius={radius}>
-      <Arrow src={arrowLeft} className="left" onClick={handlePrevClick} disabled={currentIndex === 0} />
-      <Image src={images[currentIndex].src} alt={`Slide ${currentIndex + 1}`} radius={radius} />
-      <Arrow src={arrowRight} className="right" onClick={handleNextClick} disabled={currentIndex === images.length - 1} />
-
-      {showThumbs && (
-        <ThumbnailsContainer>
-          {images.map((image, index) => (
-            <Thumbnail
-              key={index}
-              src={image.src}
-              alt={`Thumbnail ${index + 1}`}
-              onClick={() => handleThumbnailClick(index)}
-              $selected={index === currentIndex}
-              radius={radius}
-            />
-          ))}
-        </ThumbnailsContainer>
-      )}
-
-      <Indicators>
-        {images.map((_, index) => (
-          <Dot key={index} $active={index === currentIndex} />
+    <GalleryContainer width={width} height={height} bgColor={bgColor}>
+      <MainImage src={images[selectedIndex]?.src} radius={radius} />
+      <LeftArrow onClick={handleLeftArrowClick}>
+        <img src={LeftArrowSvg} alt="Previous" />
+      </LeftArrow>
+      <RightArrow onClick={handleRightArrowClick}>
+        <img src={RightArrowSvg} alt="Next" />
+      </RightArrow>
+      <ThumbnailsContainer showThumbs={showThumbs}>
+        {images.map((image, index) => (
+          <Thumbnail
+            key={index}
+            src={image.src}
+            onClick={() => handleThumbnailClick(index)}
+            active={selectedIndex === index}
+            radius={radius}
+            backgroundColor={colors && colors[index] ? colors[index] : 'transparent'}
+          />
         ))}
-      </Indicators>
+      </ThumbnailsContainer>
     </GalleryContainer>
   );
 };
 
 Gallery.propTypes = {
-  width: PropTypes.string,
-  height: PropTypes.string,
-  radius: PropTypes.string,
-  showThumbs: PropTypes.bool,
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      src: PropTypes.string.isRequired
+      src: PropTypes.string.isRequired,
     })
   ).isRequired,
+  showThumbs: PropTypes.bool,
+  radius: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  colors: PropTypes.arrayOf(PropTypes.string),
+};
+
+Gallery.defaultProps = {
+  showThumbs: false,
+  radius: '0px',
+  width: '100%',
+  height: 'auto',
+  colors: [], 
 };
 
 export default Gallery;

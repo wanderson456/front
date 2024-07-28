@@ -1,18 +1,17 @@
+// src/components/ProductListing.jsx
 import React from 'react';
 import styled from 'styled-components';
 import ProductCard from './ProductCard';
 
 const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 45px; /* Ajuste o espaçamento entre os itens */
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  color: white;
-  background-color: #F9F8FE ;
-  padding: 20px;
-  
+  padding: 5px;
+  background-color: #F9F8FE; /* Cor de fundo para a área de listagem */
 `;
 
 const ProductListing = ({ products }) => {

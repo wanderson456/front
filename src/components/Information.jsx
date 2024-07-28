@@ -1,4 +1,3 @@
-// src/components/Information.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -9,7 +8,7 @@ const Container = styled.div`
 
 const Title = styled.h4`
   font-size: 18px;
-  color: #fff; /* Cor do texto do título */
+  color: #fff; 
   margin-bottom: 10px;
 `;
 
@@ -24,7 +23,7 @@ const ListItem = styled.li`
 `;
 
 const Link = styled.a`
-  color: #fff; /* Cor dos links */
+  color: #fff; 
   text-decoration: none;
   
   &:hover {

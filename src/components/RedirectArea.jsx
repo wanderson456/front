@@ -1,8 +1,7 @@
-// src/components/RedirectArea.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import cartIcon from '../assets/mini-cart.svg'; // Atualize o caminho conforme necessário
+import cartIcon from '../assets/mini-cart.svg'; 
 
 const RedirectAreaContainer = styled.div`
   display: flex;
@@ -18,7 +17,7 @@ const RegisterLink = styled(Link)`
 
 const LoginButton = styled(Link)`
   display: inline-block;
-  background-color: #C92071; /* primary color */
+  background-color: #C92071; 
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
@@ -31,8 +30,8 @@ const LoginButton = styled(Link)`
 `;
 
 const CartIcon = styled.img`
-  width: 24px; /* Ajuste conforme necessário */
-  height: 24px; /* Ajuste conforme necessário */
+  width: 24px; 
+  height: 24px; 
   margin-left: 15px;
 `;
 

@@ -1,4 +1,3 @@
-// src/components/SearchBar.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
@@ -10,9 +9,9 @@ const SearchBarContainer = styled.div`
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 4px;
-  width: 100%; /* Garante que o contêiner ocupe a largura disponível */
-  max-width: 800px; /* Aumenta o limite máximo da largura do contêiner */
-  height: 70px; /* Aumenta a altura do contêiner */
+  width: 100%; 
+  max-width: 800px; 
+  height: 70px; 
 `;
 
 const SearchInput = styled.input`
@@ -20,7 +19,7 @@ const SearchInput = styled.input`
   outline: none;
   padding: 10px;
   font-size: 18px;
-  flex: 1; /* Faz com que o input ocupe todo o espaço disponível dentro do contêiner */
+  flex: 1; 
 `;
 
 const SearchIcon = styled(FaSearch)`
