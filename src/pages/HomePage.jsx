@@ -202,7 +202,7 @@ const HomePage = () => {
               images={highlightProduct.images}
             />
           </GalleryContainer>
-          <Ornament src="src/assets/ornament.svg" alt="Ornamento Amarelo" />
+          <Ornament src="src/assets/Ornament.svg" alt="Ornamento Amarelo" />
         </Container>
        
         <HighlightedCollectionsContainer>
