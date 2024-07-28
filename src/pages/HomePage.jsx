@@ -8,6 +8,7 @@ import ProductViewPage from './ProductViewPage';
 import Colection from '../components/Colection';
 import { ProductContext } from '../context/ProductContext';
 import orna from '../assets/Ornament.svg';
+import { NavLink } from 'react-router-dom';
 
 const theme = {
   primary: 'red',
@@ -152,7 +153,7 @@ const ProdutoAlta = styled.h1`
   margin: 0; 
 `;
 
-const VerTodosLink = styled.a`
+const VerTodosLink = styled((NavLink)) `
   color: red;
   font-size: 14px;
   text-decoration: none;
@@ -215,7 +216,7 @@ const HomePage = () => {
         <ProductViewPageContainer>
           <Alta>
             <ProdutoAlta>Produtos em alta</ProdutoAlta>
-            <VerTodosLink href="/products">
+            <VerTodosLink to={'/products'}>
               ver todos
               <ArrowIcon size={20} /> {/* Adiciona o ícone de seta */}
             </VerTodosLink>
