@@ -7,6 +7,7 @@ import HighlightedCollections from './HighlightedCollections';
 import ProductViewPage from './ProductViewPage';
 import Colection from '../components/Colection';
 import { ProductContext } from '../context/ProductContext';
+import orna from '../assets/Ornament.svg';
 
 const theme = {
   primary: 'red',
@@ -202,7 +203,7 @@ const HomePage = () => {
               images={highlightProduct.images}
             />
           </GalleryContainer>
-          <Ornament src="src/assets/Ornament.svg" alt="Ornamento Amarelo" />
+          <Ornament src={orna} alt="Ornamento Amarelo" />
         </Container>
        
         <HighlightedCollectionsContainer>
