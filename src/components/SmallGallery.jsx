@@ -1,14 +1,14 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import arrowLeft from '../assets/arrow-left.svg';
 import arrowRight from '../assets/arrow-right.svg';
 
-
 const GalleryContainer = styled.div`
   position: relative;
   width: ${props => props.width || '100%'};
   height: ${props => props.height || '100%'};
+  background-color: ${props => props.bgColor || '#FFF'};
   overflow: hidden;
   border-radius: ${props => props.radius || '0'};
   
@@ -69,8 +69,8 @@ const ThumbnailsContainer = styled.div`
 `;
 
 const Thumbnail = styled.img`
-  width: 117px;
-  height: 95px;
+  width: 75px;
+  height: 60px;
   object-fit: cover;
   cursor: pointer;
   margin: 0 5px;
@@ -108,7 +108,7 @@ const Dot = styled.span`
   }
 `;
 
-const Gallery = ({ width, height, radius, showThumbs, images }) => {
+const SmallGallery = ({ width, height, radius, showThumbs, bgColor, images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrevClick = () => {
@@ -128,10 +128,10 @@ const Gallery = ({ width, height, radius, showThumbs, images }) => {
   };
 
   return (
-    <GalleryContainer width={width} height={height} radius={radius}>
-      <Arrow src={arrowLeft} className="left" onClick={handlePrevClick} disabled={currentIndex === 0} />
+    <GalleryContainer width={width} height={height} radius={radius} bgColor={bgColor}>
+       
       <Image src={images[currentIndex].src} alt={`Slide ${currentIndex + 1}`} radius={radius} />
-      <Arrow src={arrowRight} className="right" onClick={handleNextClick} disabled={currentIndex === images.length - 1} />
+      
 
       {showThumbs && (
         <ThumbnailsContainer>
@@ -157,10 +157,11 @@ const Gallery = ({ width, height, radius, showThumbs, images }) => {
   );
 };
 
-Gallery.propTypes = {
+SmallGallery.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   radius: PropTypes.string,
+  bgColor: PropTypes.string,
   showThumbs: PropTypes.bool,
   images: PropTypes.arrayOf(
     PropTypes.shape({
@@ -169,4 +170,4 @@ Gallery.propTypes = {
   ).isRequired,
 };
 
-export default Gallery;
+export default SmallGallery;

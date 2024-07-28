@@ -7,7 +7,7 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 20px; 
-  background-color:  #F5F5F5;
+  background-color:  #F9F8FE;
   
 `;
 

@@ -38,6 +38,7 @@ const Image = styled.img`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
 `;
 
 const Info = styled.div`

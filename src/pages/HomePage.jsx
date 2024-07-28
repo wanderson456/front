@@ -5,10 +5,11 @@ import Gallery from '../components/Gallery';
 import HighlightedCollections from './HighlightedCollections';
 import ProductViewPage from './ProductViewPage';
 import Colection from '../components/Colection';
+import { TbBackground } from 'react-icons/tb';
 
 // Definindo tema para uso com styled-components
 const theme = {
-  primary: '#f8f8f8;',
+  primary: 'red',
 };
 
 const imageList = [
@@ -17,13 +18,22 @@ const imageList = [
   { src: 'src/assets/tenis.svg' }
 ];
 
+const Fundo = styled.div`
+  background-color:#F9F8FE;
+  min-height: 100vh; /* Garante que o fundo ocupe a altura total da tela */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center; /* Centraliza o conteúdo horizontalmente */
   padding: 20px;
-  background-color: #F9F8FE;
+  background-color:  #F5F5F5 ;
+  ;
 
   @media (min-width: 768px) {
     flex-direction: row; /* Altera a direção para row em telas maiores */
@@ -148,7 +158,7 @@ const ProductsContainer = styled.div`
 
 const HomePage = () => {
   return (
-    
+    <Fundo>
       <ThemeProvider theme={theme}>
         <Container>
           <Content>
@@ -175,18 +185,18 @@ const HomePage = () => {
 
         <HighlightedCollectionsContainer>
           <HighlightedCollections />
-         
         </HighlightedCollectionsContainer>
-        <Colection/>
+
+        <Colection />
 
         <ProductViewPageContainer>
           <ProdutoAlta>Produtos em alta</ProdutoAlta>
           <ProductsContainer>
-            <ProductViewPage/>
+            <ProductViewPage />
           </ProductsContainer>
         </ProductViewPageContainer>
       </ThemeProvider>
-    
+    </Fundo>
   );
 }
 

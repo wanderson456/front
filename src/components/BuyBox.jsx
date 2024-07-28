@@ -5,7 +5,7 @@ import starIcon from '../assets/star-icon.svg';
 
 const BuyBoxContainer = styled.div`
   padding: 20px;
-  background-color: #F5F5F5;
+  background-color: #F9F8FE;
   box-sizing: border-box;
   max-width: 800px;
   margin: 0 auto; /* Center the component on larger screens */
@@ -154,14 +154,14 @@ const Button = styled.button`
   padding: 10px;
   font-size: 16px;
   color: #fff;
-  background-color: #C92071; /* Cor primária para o botão */
+  background-color: #f5c518; /* Cor primária para o botão */
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #a41862; /* Cor do botão quando em hover */
+    background-color: #91740d; /* Cor do botão quando em hover */
   }
 
   @media (max-width: 768px) {
