@@ -9,6 +9,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #F5F5F5; 
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -94,7 +97,7 @@ const ProductListingPage = () => {
         <SortContainer>
           <SortLabel htmlFor="sort">Ordenar por</SortLabel>
           <SortSelect id="sort" value={sortOption} onChange={handleSortChange}>
-            <option value="Most Relevant">Mais Relevantes</option>
+            <option value="">Selecione</option>
             <option value="lowest">Menor Preço</option>
             <option value="highest">Maior Preço</option>
           </SortSelect>
@@ -135,8 +138,8 @@ const ProductListingPage = () => {
             title="Estado"
             inputType="checkbox"
             options={[
-              { text: 'Novo', value: 'brand1' },
-              { text: 'Usado', value: 'brand2' },
+              { text: 'Novo', value: 'novo' },
+              { text: 'Usado', value: 'usado' },
             ]}
           />
         </FilterContainer>

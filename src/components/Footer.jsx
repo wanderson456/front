@@ -10,22 +10,28 @@ import x from '../assets/twitter.svg';
 const FooterContainer = styled.footer`
   background-color: #1F1F1F; 
   color: #FFFFFF; 
-  padding: 40px 0;
+  padding: 40px 20px;
+  box-sizing: border-box;
 `;
 
 const FooterContent = styled.div`
-  padding: 0 20px; 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   max-width: 1200px; 
-  margin: 0 auto; 
+  margin: 0 auto;
 `;
 
 const Divimg = styled.div`
-  flex: 1.5; 
-  margin-right: 8%;
+  flex: 1;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    flex: 1.5;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
 `;
 
 const Logo = styled.div`
@@ -67,7 +73,12 @@ const Copyright = styled.p`
 
 const InformationContainer = styled.div`
   flex: 1;
-  margin-left: 2%;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+    margin-left: 20px;
+  }
 `;
 
 const Footer = () => {

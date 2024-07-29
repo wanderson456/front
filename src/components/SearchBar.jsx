@@ -11,7 +11,12 @@ const SearchBarContainer = styled.div`
   border-radius: 4px;
   width: 100%; 
   max-width: 800px; 
-  height: 70px; 
+  height: 70px;
+
+  @media (max-width: 768px) {
+    height: 50px;
+    padding: 5px;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -19,13 +24,23 @@ const SearchInput = styled.input`
   outline: none;
   padding: 10px;
   font-size: 18px;
-  flex: 1; 
+  flex: 1;
+
+  @media (max-width: 768px) {
+    padding: 5px;
+    font-size: 16px;
+  }
 `;
 
 const SearchIcon = styled(FaSearch)`
   cursor: pointer;
   margin-left: 10px;
   font-size: 24px;
+
+  @media (max-width: 768px) {
+    margin-left: 5px;
+    font-size: 20px;
+  }
 `;
 
 const SearchBar = () => {

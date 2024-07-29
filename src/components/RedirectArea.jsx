@@ -6,6 +6,11 @@ import cartIcon from '../assets/mini-cart.svg';
 const RedirectAreaContainer = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const RegisterLink = styled(Link)`
@@ -13,6 +18,11 @@ const RegisterLink = styled(Link)`
   color: #4a4a4a; /* dark-gray-2 */
   text-decoration: underline;
   margin-right: 15px;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 `;
 
 const LoginButton = styled(Link)`
@@ -27,12 +37,21 @@ const LoginButton = styled(Link)`
   width: 114px;
   height: 40px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 `;
 
 const CartIcon = styled.img`
   width: 24px; 
   height: 24px; 
   margin-left: 15px;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 
 const RedirectArea = () => {

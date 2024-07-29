@@ -1,14 +1,28 @@
-
 import React from 'react';
 import Section from '../components/Section';
 import styled from 'styled-components';
 
 const ImageContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap; 
+  justify-content: center; 
   gap: 20px; 
-  background-color:  #F9F8FE;
-  
+  background-color: #F9F8FE;
+  padding: 20px; 
+
+  @media (max-width: 1024px) {
+    gap: 15px;
+  }
+
+  @media (max-width: 768px) {
+    gap: 10px;
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px;
+  }
 `;
 
 const CollectionImage = styled.img`
@@ -17,6 +31,14 @@ const CollectionImage = styled.img`
   border-radius: 4px; 
   object-fit: cover; 
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    max-width: 250px; 
+  }
+
+  @media (max-width: 480px) {
+    max-width: 200px; 
+  }
 `;
 
 const HighlightedCollections = () => {

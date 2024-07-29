@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -12,34 +11,60 @@ const GalleryContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ bgColor }) => bgColor || 'transparent'}; 
+  background-color: ${({ bgColor }) => bgColor || 'transparent'};
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const MainImage = styled.img`
   width: 80%;
-  height: 400px; 
-  object-fit: cover; 
+  height: 400px;
+  object-fit: cover;
   border-radius: ${({ radius }) => radius || '0px'};
   display: block;
   margin-top: 5%;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    height: auto;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const ThumbnailsContainer = styled.div`
   display: ${({ showThumbs }) => (showThumbs ? 'flex' : 'none')};
   justify-content: center;
-  margin-top: 20%; 
-  flex-wrap: wrap; 
+  margin-top: 20%;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    margin-top: 10%;
+  }
 `;
 
 const Thumbnail = styled.img`
   width: 20%;
   height: auto;
-  margin: 0 3px; 
+  margin: 0 3px;
   cursor: pointer;
   border: 2px solid ${({ active }) => (active ? '#C92071' : 'transparent')};
   border-radius: ${({ radius }) => radius || '0px'};
   background-color: ${({ backgroundColor }) => backgroundColor || 'transparent'};
-  padding: 2px; 
+  padding: 2px;
+
+  @media (max-width: 768px) {
+    width: 15%;
+  }
+
+  @media (max-width: 480px) {
+    width: 20%;
+  }
 `;
 
 const Arrow = styled.div`
@@ -53,6 +78,11 @@ const Arrow = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 const LeftArrow = styled(Arrow)`
@@ -65,11 +95,11 @@ const RightArrow = styled(Arrow)`
 
 const Gallery = ({ images, showThumbs, radius, width, height, colors }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [bgColor, setBgColor] = useState('transparent'); 
+  const [bgColor, setBgColor] = useState('transparent');
 
   const handleThumbnailClick = (index) => {
     setSelectedIndex(index);
-    setBgColor(colors && colors[index] ? colors[index] : 'transparent'); 
+    setBgColor(colors && colors[index] ? colors[index] : 'transparent');
   };
 
   const handleLeftArrowClick = () => {
@@ -123,7 +153,7 @@ Gallery.defaultProps = {
   radius: '0px',
   width: '100%',
   height: 'auto',
-  colors: [], 
+  colors: [],
 };
 
 export default Gallery;

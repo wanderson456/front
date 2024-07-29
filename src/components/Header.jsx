@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Logo from './LogoImg';
 import SearchBar from './SearchBar';
@@ -21,15 +20,25 @@ const HeaderTop = styled.div`
   justify-content: space-between;
   margin: 0 20px;
   margin-bottom: 2%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const LogoAndSearch = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  flex: 1; 
-  max-width: calc(100% - 150px); 
-  
+  flex: 1;
+  max-width: calc(100% - 150px);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
 `;
 
 const HeaderBottom = styled.div`
@@ -37,6 +46,11 @@ const HeaderBottom = styled.div`
   justify-content: flex-start;
   margin-top: 10px;
   margin-left: 20px;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    width: 100%;
+  }
 `;
 
 const Header = () => {

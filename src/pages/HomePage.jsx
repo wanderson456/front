@@ -1,7 +1,6 @@
-// src/pages/HomePage.jsx
 import React, { useContext } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { MdArrowForward } from 'react-icons/md'; // Importando o ícone de seta
+import { MdArrowForward } from 'react-icons/md'; 
 import Gallery from '../components/Gallery';
 import HighlightedCollections from './HighlightedCollections';
 import ProductViewPage from './ProductViewPage';
@@ -28,7 +27,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center; 
   padding: 20px;
-  background-color: #F5F5F5;
+  background-color:  #F9F8FE;
   width: 100%;
 
   @media (min-width: 768px) {
@@ -169,7 +168,7 @@ const VerTodosLink = styled((NavLink)) `
 
 const ArrowIcon = styled(MdArrowForward)`
   color: red;
-  margin-left: 8px; /* Espaçamento entre o link e o ícone */
+  margin-left: 8px; 
 `;
 
 const ProductsContainer = styled.div`

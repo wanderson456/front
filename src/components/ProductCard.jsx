@@ -3,15 +3,25 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
-  position: relative; 
+  position: relative;
   border-radius: 4px;
   padding: 10px;
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; 
-  cursor: pointer; 
+  align-items: flex-start;
+  cursor: pointer;
   gap: 5px;
+  background-color:  white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1024px) {
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
 `;
 
 const DiscountBadge = styled.div`
@@ -21,56 +31,72 @@ const DiscountBadge = styled.div`
   background-color: yellow;
   color: black;
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: bold;
-  margin-top: 30px;
-  margin-left: 8%;
-  border-radius: 8px;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 321px; 
+  height: 200px; 
   object-fit: cover;
-  width: 292px; 
-  border: 1px solid #e1e1e1;
+ 
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #FFFFFF;
+  
+
+  @media (max-width: 768px) {
+    height: 180px;
+  }
 `;
 
 const Info = styled.div`
-  padding: 16px; 
+  padding: 12px; 
   text-align: left; 
-  width: 100%; 
+  width: 100%;
 `;
 
 const Name = styled.h2`
-  font-size: 18px;
+  font-size: 16px;
   margin: 0 0 8px;
   color: #333;
   font-weight: normal;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const PriceContainer = styled.div`
   display: flex;
-  align-items: baseline; 
+  align-items: baseline;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const Price = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   color: #b0b0b0;
   text-decoration: line-through;
-  margin: 0 10px 0 0; 
+  margin: 0 10px 0 0;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const DiscountedPrice = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
   font-weight: bold;
   margin: 0;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const ProductCard = ({ id, image, name, price, priceDiscount, discountPercentage, isTopDiscount }) => {
@@ -91,11 +117,11 @@ const ProductCard = ({ id, image, name, price, priceDiscount, discountPercentage
         <PriceContainer>
           {priceDiscount ? (
             <>
-              <DiscountedPrice> {` R$${priceDiscount} `} </DiscountedPrice>
-              <Price> {`R$${price}`} </Price>
+              <DiscountedPrice>{`R$${priceDiscount}`}</DiscountedPrice>
+              <Price>{`R$${price}`}</Price>
             </>
           ) : (
-            <Price> {`R$${price}`} </Price>
+            <Price>{`R$${price}`}</Price>
           )}
         </PriceContainer>
       </Info>
