@@ -15,6 +15,7 @@ const ProductGrid = styled.div`
 `;
 
 const ProductListing = ({ products }) => {
+  // Adicionamos a porcentagem de desconto a cada produto
   const productsWithDiscount = products.map(product => ({
     ...product,
     discountPercentage: product.price && product.priceDiscount
@@ -22,13 +23,20 @@ const ProductListing = ({ products }) => {
       : 0
   }));
 
-  const sortedProducts = productsWithDiscount.sort((a, b) => b.discountPercentage - a.discountPercentage);
+  // Ordenamos os produtos pelo id
+  const sortedProductsById = productsWithDiscount.sort((a, b) => a.id - b.id);
 
-  const topTwoDiscountProducts = sortedProducts.slice(0, 2);
+  // Criamos uma lista dos produtos com maior desconto
+  const topTwoDiscountProducts = [...productsWithDiscount]
+    .sort((a, b) => b.discountPercentage - a.discountPercentage)
+    .slice(0, 2);
+
+  // Removemos os produtos com maior desconto da lista ordenada pelo id
+  const remainingProducts = sortedProductsById.filter(product => !topTwoDiscountProducts.includes(product));
 
   return (
     <ProductGrid>
-      {productsWithDiscount.map((product, index) => (
+      {topTwoDiscountProducts.map((product, index) => (
         <ProductCard
           key={product.id || index}
           id={product.id || index} 
@@ -37,7 +45,19 @@ const ProductListing = ({ products }) => {
           price={product.price}
           priceDiscount={product.priceDiscount}
           discountPercentage={product.discountPercentage}
-          isTopDiscount={topTwoDiscountProducts.includes(product)}
+          isTopDiscount={true}
+        />
+      ))}
+      {remainingProducts.map((product, index) => (
+        <ProductCard
+          key={product.id || index}
+          id={product.id || index} 
+          image={product.image}
+          name={product.name}
+          price={product.price}
+          priceDiscount={product.priceDiscount}
+          discountPercentage={product.discountPercentage}
+          isTopDiscount={false}
         />
       ))}
     </ProductGrid>
