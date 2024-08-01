@@ -216,7 +216,7 @@ const HomePage = () => {
           <Alta>
             <ProdutoAlta>Produtos em alta</ProdutoAlta>
             <VerTodosLink to={'/products'}>
-              ver todos
+              Ver Todos
               <ArrowIcon size={20} /> {/* Adiciona o ícone de seta */}
             </VerTodosLink>
           </Alta>
