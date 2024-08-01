@@ -22,7 +22,7 @@ background-color: white;
 width: 8%;
 position: absolute;
 height: 6%;
-border-radius: 25px;
+border-radius: 8px;
 margin-top: 8%;
 border: none;
 margin-left: 2%;
@@ -81,7 +81,7 @@ const HighlightedCollections = () => {
         <div>
         <div>
         <Btcomprar1>
-          comprar
+          Comprar
         </Btcomprar1>
         </div>
         <Btcomprar>30% OFF </Btcomprar>
@@ -90,7 +90,7 @@ const HighlightedCollections = () => {
         <div>
         <div>
         <Btcomprar1>
-          comprar
+          Comprar
         </Btcomprar1>
         </div>
         <Btcomprar>30% OFF </Btcomprar>
@@ -101,7 +101,7 @@ const HighlightedCollections = () => {
         <Btcomprar>30% OFF </Btcomprar>
         <div>
         <Btcomprar1>
-          comprar
+          Comprar
         </Btcomprar1>
         </div>
         <CollectionImage src="/collection-3.png" alt="Coleção 3" />
