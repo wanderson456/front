@@ -34,9 +34,6 @@ const Divimg = styled.div`
   }
 `;
 
-const Logo = styled.div`
-  margin-bottom: 20px;
-`;
 
 const Description = styled.p`
   margin-bottom: 20px;
@@ -108,9 +105,9 @@ const Footer = () => {
   const info3 = {
     title: "Contato",
     informations: [
-      { text: "Av. Santos Dumont, 1510 - 1 " },
-      { text: "andar - Aldeota, Fortaleza - CE, 60150-161"},
-      { text: "(85) 3051-3411"},
+      { text: "Av. Santos Dumont, 1510 - 1 " , link: ""},
+      { text: "andar - Aldeota, Fortaleza - CE, 60150-161" , link: ""},
+      { text: "(85) 3051-3411", link: "none"},
     ]
   };
 

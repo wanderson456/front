@@ -90,11 +90,11 @@ const CategoryItem = styled.div`
 `;
 
 const categories = [
-  { name: 'Camisetas', icon: shirtIcon },
-  { name: 'Calças', icon: pantsIcon },
-  { name: 'Bonés', icon: capIcon },
-  { name: 'Headphones', icon: headphonesIcon },
-  { name: 'Tênis', icon: sneakersIcon }
+  { icon: shirtIcon },
+  {  icon: pantsIcon },
+  {  icon: capIcon },
+  {  icon: headphonesIcon },
+  {  icon: sneakersIcon }
 ];
 
 const Colection = ({ selectedCategory }) => {
@@ -109,7 +109,7 @@ const Colection = ({ selectedCategory }) => {
             <div>
               <img src={category.icon} alt={category.name} />
             </div>
-            <span>{category.name}</span>
+         
           </CategoryItem>
         ))}
       </CategoriesContainer>

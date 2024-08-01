@@ -117,8 +117,9 @@ const ProductCard = ({ id, image, name, price, priceDiscount, discountPercentage
         <PriceContainer>
           {priceDiscount ? (
             <>
-              <DiscountedPrice>{`R$${priceDiscount}`}</DiscountedPrice>
               <Price>{`R$${price}`}</Price>
+              <DiscountedPrice>{`R$${priceDiscount}`}</DiscountedPrice>
+             
             </>
           ) : (
             <Price>{`R$${price}`}</Price>
