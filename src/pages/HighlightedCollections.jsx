@@ -28,6 +28,7 @@ border: none;
 margin-left: 2%;
 color: #C92071;
 font-weight: bold;
+cursor: pointer;
 
 
 
