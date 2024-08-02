@@ -8,11 +8,13 @@ const Promocao = styled.button`
   border: none;
   position: absolute;
   cursor: pointer;
-  margin-left: 2%;
+  margin-left: 6%;
   margin-top: 5px;
   height: 30px;
-  width: 60px;
+  width: 80px;
   font-size: 12px;
+  font-weight: bold;
+  color: grey;
   
   @media (max-width: 768px) {
     height: 25px;
