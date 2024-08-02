@@ -12,10 +12,21 @@ const SearchBarContainer = styled.div`
   width: 100%; 
   max-width: 800px; 
   height: 70px;
+  box-sizing: border-box; /* Inclui padding e border no tamanho total */
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) { /* Notebooks e dispositivos maiores */
+    height: 60px;
+    padding: 8px;
+  }
+
+  @media (max-width: 992px) { /* Tablets */
     height: 50px;
-    padding: 5px;
+    padding: 6px;
+  }
+
+  @media (max-width: 768px) { /* Celulares pequenos */
+    height: 45px;
+   
   }
 `;
 
@@ -26,9 +37,19 @@ const SearchInput = styled.input`
   font-size: 18px;
   flex: 1;
 
-  @media (max-width: 768px) {
-    padding: 5px;
+  @media (max-width: 1200px) {
+    padding: 8px;
     font-size: 16px;
+  }
+
+  @media (max-width: 992px) {
+    padding: 6px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1px;
+    font-size: 8px;
   }
 `;
 
@@ -37,9 +58,19 @@ const SearchIcon = styled(FaSearch)`
   margin-left: 10px;
   font-size: 24px;
 
-  @media (max-width: 768px) {
-    margin-left: 5px;
+  @media (max-width: 1200px) {
+    margin-left: 8px;
+    font-size: 22px;
+  }
+
+  @media (max-width: 992px) {
+    margin-left: 6px;
     font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+   
+    font-size: 18px;
   }
 `;
 
