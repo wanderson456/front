@@ -12,19 +12,19 @@ const SearchBarContainer = styled.div`
   width: 100%; 
   max-width: 800px; 
   height: 70px;
-  box-sizing: border-box; /* Inclui padding e border no tamanho total */
+  box-sizing: border-box; 
 
-  @media (max-width: 1200px) { /* Notebooks e dispositivos maiores */
+  @media (max-width: 1200px) { 
     height: 60px;
     padding: 8px;
   }
 
-  @media (max-width: 992px) { /* Tablets */
+  @media (max-width: 992px) { 
     height: 50px;
     padding: 6px;
   }
 
-  @media (max-width: 768px) { /* Celulares pequenos */
+  @media (max-width: 768px) { 
     height: 45px;
    
   }
