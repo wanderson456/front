@@ -25,7 +25,7 @@ const CategoriesContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  color: grey;
+  color: #525050;
   font-size: 16px;
   margin: 20px 0;
   font-weight: bold;

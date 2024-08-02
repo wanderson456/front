@@ -48,6 +48,7 @@ const CartIcon = styled.img`
   width: 24px; 
   height: 24px; 
   margin-left: 15px;
+  
 
   @media (max-width: 768px) {
     margin-left: 0;

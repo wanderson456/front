@@ -21,7 +21,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.h2`
-  color: grey; 
+  color: #5d5b5b; 
   font-size: 24px; 
   margin: 0;
 `;

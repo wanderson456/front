@@ -148,7 +148,7 @@ const Alta = styled.div`
 `;
 
 const ProdutoAlta = styled.h1`
-  color: black;
+  color: #6b6a6a;
   font-size: 24px; 
   margin: 0; 
 `;
