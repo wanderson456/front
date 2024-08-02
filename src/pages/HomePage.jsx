@@ -8,6 +8,7 @@ import Colection from '../components/Colection';
 import { ProductContext } from '../context/ProductContext';
 import orna from '../assets/Ornament.svg';
 import { NavLink } from 'react-router-dom';
+import Air from '../components/Air';
 
 const theme = {
   primary: 'red',
@@ -224,6 +225,7 @@ const HomePage = () => {
             <ProductViewPage />
           </ProductsContainer>
         </ProductViewPageContainer>
+        <Air/>
       </ThemeProvider>
     </Fundo>
   );
