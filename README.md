@@ -45,6 +45,13 @@ Este é um projeto frontend desenvolvido com React, Vite e styled-components. O 
     - Componente responsável por exibir uma seção de coleções em destaque, apresentando uma lista de categorias com ícones e textos associados.
 - _Air_
     - Componente projetado para destacar uma oferta especial.
+## Estrutura das Páginas
+- Página Inicial 
+      - Slide de imagens, coleções em destaque, produtos em alta.
+- Página de Listagem de Produtos
+      - Ordenar por, filtrar por, listagem de produtos.
+- Página de Visualização do Produto
+      - Galeria, opções do produto, buy box, produtos recomendados.
   
 ## Dependências
 - Primeicons: Ícones para o projeto.
@@ -83,3 +90,9 @@ npm install
 ```bash
 npm run dev 
 ```
+## Autor 
+
+  [![Gmail](https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red)](mailto:franciscowanderson26@gmail.com) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/wanderson-jord%C3%A3o-a394a615b)
+
+  - Wanderson Jordão
+  
