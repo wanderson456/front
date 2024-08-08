@@ -21,7 +21,7 @@ const BuyBoxContainer = styled.div`
 
 const ProductName = styled.h1`
   font-size: 32px;
-  color: #333;
+  color: #1F1F1F;
   margin: 0;
 
   @media (max-width: 768px) {
@@ -35,7 +35,7 @@ const ProductName = styled.h1`
 
 const ProductReference = styled.p`
   font-size: 12px;
-  color: #999;
+  color: #666666;
   margin: 4px 0 16px;
 
   @media (max-width: 768px) {
@@ -79,7 +79,7 @@ const StarIcon = styled.img`
 
 const Rating = styled.p`
   font-size: 14px;
-  color: #aaa;
+  color:  #CCCCCC;
   margin: 0;
   margin-left: 10px;
 `;
@@ -101,12 +101,12 @@ const PriceContainer = styled.div`
 
 const Price = styled.p`
   font-size: 32px;
-  color: #333;
+  color:  #1F1F1F;
   margin: 0;
 
   ${props => props.discounted && `
     font-size: 16px;
-    color: #aaa;
+    color:  #CCCCCC;
     text-decoration: line-through;
   `}
 
@@ -121,7 +121,7 @@ const Price = styled.p`
 
 const DiscountedPrice = styled.p`
   font-size: 32px;
-  color: #090909; 
+  color: #1F1F1F; 
   margin: 0;
   margin-left: 10px;
 
@@ -136,7 +136,7 @@ const DiscountedPrice = styled.p`
 
 const Description = styled.p`
   font-size: 14px;
-  color: #666;
+  color: #474747;
   margin: 20px 0;
 
   @media (max-width: 768px) {
@@ -154,7 +154,7 @@ const Button = styled.button`
   padding: 10px;
   font-size: 16px;
   color: #fff;
-  background-color: #f5c518; 
+  background-color: #F6AA1C; 
   border: none;
   border-radius: 4px;
   cursor: pointer;

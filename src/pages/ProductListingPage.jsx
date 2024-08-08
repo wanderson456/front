@@ -11,7 +11,7 @@ const Container = styled.div`
   padding: 20px;
   box-sizing: border-box;
   width: 100%;
-  background-color: #F5F5F5; 
+  background-color: #F5F5F5;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -34,21 +34,19 @@ const Content = styled.div`
 `;
 
 const SortContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   margin-bottom: 20px;
 `;
 
-const SortLabel = styled.label`
-  font-size: 16px;
-  color: #555;
-  display: block;
-  margin-bottom: 8px;
-`;
+
 
 const SortSelect = styled.select`
-  width: 100%;
-  height: 40px;
+  width: 308px;
+  height: 60px;
   font-size: 16px;
-  color: #555;
+  color: #474747;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -62,8 +60,8 @@ const FilterContainer = styled.div`
 `;
 
 const FilterTitle = styled.h3`
-  font-size: 14px;
-  color: #555;
+  font-size: 16px;
+  color: #1F1F1F;
   margin-bottom: 10px;
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
@@ -94,15 +92,6 @@ const ProductListingPage = () => {
   return (
     <Container>
       <Sidebar>
-        <SortContainer>
-          <SortLabel htmlFor="sort">Ordenar por</SortLabel>
-          <SortSelect id="sort" value={sortOption} onChange={handleSortChange}>
-            <option value="">Selecione</option>
-            <option value="lowest">Menor Preço</option>
-            <option value="highest">Maior Preço</option>
-          </SortSelect>
-        </SortContainer>
-
         <FilterContainer>
           <FilterTitle>Filtrar por</FilterTitle>
           <FilterGroup
@@ -146,6 +135,16 @@ const ProductListingPage = () => {
       </Sidebar>
 
       <Content>
+        <SortContainer>
+          
+          <SortSelect id="sort" value={sortOption} onChange={handleSortChange}>
+            
+            <option value="lowest"> Ordenar por:  Mais Relevante</option>
+            <option value="highest">Ordenar Por:Maior Preço</option>
+            <option value="relevant">Ordenar por: Menor Preço</option>
+          </SortSelect>
+        </SortContainer>
+
         <Section title={`${products.length} produtos encontrados`} titleAlign="left">
           <ProductListing products={products} />
         </Section>

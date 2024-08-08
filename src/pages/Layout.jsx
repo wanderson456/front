@@ -18,7 +18,7 @@ const MainContent = styled.div`
   flex: 1; 
 `;
 
-const Layout = () => {
+const Layout = ({children}) => {
   return (
     <>
     

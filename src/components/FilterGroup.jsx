@@ -9,8 +9,8 @@ const FilterContainer = styled.div`
 const FilterLabel = styled.label`
   display: flex;
   align-items: center;
-  font-size: 14px;
-  color: #555;
+  font-size: 16px;
+  color: #1F1F1F;
   margin-bottom: 10px;
 `;
 

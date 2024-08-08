@@ -6,7 +6,10 @@ import Gallery from '../components/Gallery';
 import BuyBox from '../components/BuyBox';
 import ProductOptions from '../components/ProductOptions';
 import ProductViewPage from '../pages/ProductViewPage';
-
+const Label = styled.h2`
+color:  #8F8F8F;
+font-size: 16px;
+`;
 const NavLinkStyled = styled(NavLink)`
   text-decoration: none;
   color: #333;
@@ -108,8 +111,10 @@ const ProductDetails = () => {
               rating={product.reviews}
               priceDiscount={product.priceDiscount}
               price={product.price}
-              description={product.description}
+              
+              description= {product.description}
             >
+               <Label>Tamanho</Label>
               <ProductOptions
                 options={product.sizes}
                 shape='square'

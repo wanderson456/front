@@ -78,18 +78,7 @@ const PriceContainer = styled.div`
 `;
 
 const Price = styled.p`
-  font-size: 16px;
-  color: #b0b0b0;
-  text-decoration: line-through;
-  margin: 0 10px 0 0;
-
-  @media (max-width: 768px) {
-    font-size: 14px;
-  }
-`;
-
-const DiscountedPrice = styled.p`
-  font-size: 16px;
+font-size: 24px;
   color: #000;
   font-weight: bold;
   margin: 0;
@@ -97,6 +86,19 @@ const DiscountedPrice = styled.p`
   @media (max-width: 768px) {
     font-size: 14px;
   }
+  
+`;
+
+const DiscountedPrice = styled.p`
+font-size: 24px;
+  color: darkgrey;
+  text-decoration: line-through;
+  margin: 0 10px 0 0;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  
 `;
 
 const ProductCard = ({ id, image, name, price, priceDiscount, discountPercentage, isTopDiscount }) => {
@@ -117,8 +119,10 @@ const ProductCard = ({ id, image, name, price, priceDiscount, discountPercentage
         <PriceContainer>
           {priceDiscount ? (
             <>
-              <Price>{`R$${price}`}</Price>
-              <DiscountedPrice>{`R$${priceDiscount}`}</DiscountedPrice>
+              <Price> {`R$${ price } `} </Price>
+              <DiscountedPrice> {` R$ ${ priceDiscount }`} </DiscountedPrice>
+             
+              
              
             </>
           ) : (

@@ -19,7 +19,7 @@ export const ProductProvider = ({ children }) => {
       sizes: ['39', '40', '41', '42', '43'],
       colors: ['#FF5959', '#FFC700', '#7B61FF'],
       images: [{ src: img }, { src: img2 },{ src: img }],
-      showThumb: [{ src: img }, { src: img2 },{ src: img2 }]
+      
     },
 
     {
@@ -35,7 +35,7 @@ export const ProductProvider = ({ children }) => {
       sizes: ['39', '40', '41', '42', '43'],
       colors: ['#FF5959', '#FFC700', '#7B61FF'],
       images: [{ src: img2 },{ src: img}, { src: img2 },],
-      showThumb: [{ src: img }, { src: img2 },{ src: img2 }]
+      
     },
     {
       id: 3,
@@ -50,7 +50,7 @@ export const ProductProvider = ({ children }) => {
       sizes: ['39', '40', '41', '42', '43'],
       colors: ['#FF5959', '#FFC700', '#7B61FF'],
       images: [{ src: img }, { src: img2 }, { src: img }],
-      showThumb: [{ src: img }, { src: img2 }]
+     
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ export const ProductProvider = ({ children }) => {
       sizes: ['39', '40', '41', '42', '43'],
       colors: ['#FF5959', '#FFC700', '#7B61FF'],
       images: [{ src: img }, { src: img }, { src: img }],
-      showThumb: [{ src: img }, { src: img2 } ,{ src: img }]
+     
     },
     {
       id: 5,
@@ -80,7 +80,7 @@ export const ProductProvider = ({ children }) => {
       sizes: ['39', '40', '41', '42', '43'],
       colors: ['#FF5959', '#FFC700', '#7B61FF'],
       images: [{ src: img }, { src: img },{ src: img }],
-      showThumb: [{ src: img }, { src: img },{ src: img2 }]
+    
     },
     {
       id: 6,
@@ -95,7 +95,7 @@ export const ProductProvider = ({ children }) => {
       sizes: ['39', '40', '41', '42', '43'],
       colors: ['#FF5959', '#FFC700', '#7B61FF'],
       images: [{ src: img2 }, { src: img },{ src: img2 }],
-      showThumb: [{ src: img }, { src: img },{ src: img2 }]
+    
     },
     {
       id: 7,
@@ -110,7 +110,7 @@ export const ProductProvider = ({ children }) => {
       sizes: ['39', '40', '41', '42', '43'],
       colors: ['#FF5959', '#FFC700', '#7B61FF'],
       images: [{ src: img }, { src: img2 },{ src: img }],
-      showThumb: [{ src: img }, { src: img },{ src: img2 }]
+      
     },
     {
       id: 8,
@@ -120,12 +120,12 @@ export const ProductProvider = ({ children }) => {
       rating: 4.7,
       reviews: 100,
       price: 240,
-      priceDiscount: 210,
+      //priceDiscount: 210,
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
       sizes: ['39', '40', '41', '42', '43'],
       colors: ['#FF5959', '#FFC700', '#7B61FF'],
       images: [{ src: img2 }, { src: img },{ src: img2 }],
-      showThumb: [{ src: img }, { src: img2 },{ src: img2 }]
+      
     },
   ]);
 

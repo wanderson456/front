@@ -13,8 +13,8 @@ const Option = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: ${props => (props.shape === 'square' ? '46px' : '31px')};
-  height: ${props => (props.shape === 'square' ? '46px' : '31px')};
+  width: ${props => (props.shape === 'square' ? '31px' : '31px')};
+  height: ${props => (props.shape === 'square' ? '31px' : '31px')};
   border: 1px solid #ccc;
   border-radius: ${props => (props.shape === 'square' ? props.radius : '50%')};
   background-color: ${props => (props.type === 'color' ? props.option : 'transparent')};
